@@ -1,0 +1,16 @@
+.PHONY: all clean
+
+all: hello
+
+main.o: main.c
+	gcc -c -o main.o main.c
+
+hello.o: hello.c
+	gcc -c -o hello.o hello.c
+
+hello: main.o hello.o
+	gcc -o hello main.o hello.o
+
+clean:
+	rm -rf hello *.o
+
